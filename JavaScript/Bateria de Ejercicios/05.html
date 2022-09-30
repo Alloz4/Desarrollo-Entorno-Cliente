@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Triángulo rectangulo</h1>
+    <textarea id="pantalla" cols="30" rows="10"></textarea>
+    <script>
+      var texto = "";
+      let n;
+      do {
+        n = prompt("Escribe el número de asteriscos que deseas poner");
+      } while (isNaN(Number(n)) || n <= 0);
+      for (let i = 1; i <= n; i++) {
+        for (let j = 1; j <= i; j++) {
+          texto += "* ";
+        }
+        texto += "\n";
+      }
+      if (
+        n > document.getElementById("pantalla").rows &&
+        n > document.getElementById("pantalla").cols
+      ) {
+        document.getElementById("pantalla").cols = n * 2;
+        document.getElementById("pantalla").rows = n;
+      }
+      document.getElementById("pantalla").value = texto;
+    </script>
+  </body>
+</html>
