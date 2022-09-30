@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //juego de adivinar un numero aleatorio entre 1 y 1000.El programa permitirá un número de intentos indefinido, irá contabilizando el número de intentos, hasta acertar, o bien, el usuario podrá salir voluntariamente de la partida pulsando “Salir"
+      var numero = Math.floor(Math.random() * 1000) + 1;
+      var intentos = 0;
+      var respuesta = prompt("Adivina el número entre 1 y 1000");
+      while (respuesta != numero) {
+        if (respuesta == "" || respuesta == "salir") {
+          break;
+        }
+        intentos++;
+        if (respuesta > numero) {
+          respuesta = prompt("Demasiado alto. Inténtalo de nuevo");
+        } else if (respuesta < numero) {
+          respuesta = prompt("Demasiado bajo. Inténtalo de nuevo");
+        }
+      }
+      if (respuesta == "salir" || respuesta == "") {
+        document.write("Has salido del juego");
+      } else {
+        document.write("Has acertado el número en " + intentos + " intentos");
+      }
+    </script>
+  </body>
+</html>
