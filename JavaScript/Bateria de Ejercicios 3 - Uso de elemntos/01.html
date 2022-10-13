@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Desarrolla el código que permita pedir tres números al cliente y determinar cuál de ellos es el mayor.
+        let num1 = prompt("Introduce el primer número: ");
+        let num2 = prompt("Introduce el segundo número: ");
+        let num3 = prompt("Introduce el tercer número: ");
+
+        if (num1 > num2 && num1 > num3) {
+            alert("El número " + num1 + " es el mayor.");
+        } else if (num2 > num1 && num2 > num3) {
+            alert("El número " + num2 + " es el mayor.");
+        } else if (num3 > num1 && num3 > num2) {
+            alert("El número " + num3 + " es el mayor.");
+        } else {
+            alert("Los números son iguales.");
+        }
+
+    </script>
+</body>
+
+</html>

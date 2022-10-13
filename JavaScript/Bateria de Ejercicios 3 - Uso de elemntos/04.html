@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Desarrolla el código JS que permita pedir al cliente una cantidad numérica a través de un prompt y realizar su descomposición en opciones monetarias.
+
+        let cantidad = parseInt(prompt("Introduce una cantidad: "));
+
+        while (isNaN(cantidad)) {
+            cantidad = parseInt(prompt("Introduce una cantidad: "));
+        }
+        let billetes500 = 0;
+        let billetes200 = 0;
+        let billetes100 = 0;
+        let billetes50 = 0;
+        let billetes20 = 0;
+        let billetes10 = 0;
+        let billetes5 = 0;
+        let billetes2 = 0;
+        let billetes1 = 0;
+
+        while (cantidad >= 500) {
+            cantidad = cantidad - 500;
+            billetes500++;
+        }
+        while (cantidad >= 200) {
+            cantidad = cantidad - 200;
+            billetes200++;
+        }
+        while (cantidad >= 100) {
+            cantidad = cantidad - 100;
+            billetes100++;
+        }
+        while (cantidad >= 50) {
+            cantidad = cantidad - 50;
+            billetes50++;
+        }
+        while (cantidad >= 20) {
+            cantidad = cantidad - 20;
+            billetes20++;
+        }
+        while (cantidad >= 10) {
+            cantidad = cantidad - 10;
+            billetes10++;
+        }
+        while (cantidad >= 5) {
+            cantidad = cantidad - 5;
+            billetes5++;
+        }
+        while (cantidad >= 2) {
+            cantidad = cantidad - 2;
+            billetes2++;
+        }
+        while (cantidad >= 1) {
+            cantidad = cantidad - 1;
+            billetes1++;
+        }
+
+        document.write("La cantidad " + cantidad + " se descompone en: " + billetes500 + " billetes de 500, " + billetes200 + " billetes de 200, " + billetes100 + " billetes de 100, " + billetes50 + " billetes de 50, " + billetes20 + " billetes de 20, " + billetes10 + " billetes de 10, " + billetes5 + " billetes de 5, " + billetes2 + " monedas de 2, " + billetes1 + " monedas de 1. ");
+    </script>
+
+</body>
+
+</html>
