@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ejercicio 4</title>
+</head>
+
+<body>
+    <script>
+        let arrayNumeros = new Array(20);
+        let aleatorio = 0;
+
+        for (let i = 0; i < arrayNumeros.length; i++) {
+            aleatorio = Math.floor(Math.random() * 50) + 1;
+            arrayNumeros[i] = aleatorio;
+            document.write(arrayNumeros[i] + ": ");
+            for (let j = 0; j < arrayNumeros[i]; j++) {
+                document.write("*");
+            }
+            document.write("<br>")
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>
