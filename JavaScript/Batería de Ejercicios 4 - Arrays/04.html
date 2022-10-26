@@ -9,22 +9,29 @@
 </head>
 
 <body>
+    <h1>Ejercicio 04 - Asteriscos</h1>
+    <textarea name="" id="area" cols="60" rows="20"></textarea><br>
+    <button onclick="asteriscos()">Asteriscos</button>
+    <button onclick="clearArea();">Limpiar Asteriscos</button>
     <script>
-        let arrayNumeros = new Array(20);
-        let aleatorio = 0;
+        function asteriscos() {
+            let arrayNumeros = new Array(20);
+            let aleatorio = 0;
 
-        for (let i = 0; i < arrayNumeros.length; i++) {
-            aleatorio = Math.floor(Math.random() * 50) + 1;
-            arrayNumeros[i] = aleatorio;
-            document.write(arrayNumeros[i] + ": ");
-            for (let j = 0; j < arrayNumeros[i]; j++) {
-                document.write("*");
+            for (let i = 0; i < arrayNumeros.length; i++) {
+                aleatorio = Math.floor(Math.random() * 50) + 1;
+                arrayNumeros[i] = aleatorio;
+                document.getElementById('area').value += arrayNumeros[i] + ": ";
+                for (let j = 0; j < arrayNumeros[i]; j++) {
+                    document.getElementById('area').value += "*";
+                }
+                document.getElementById('area').value += "\n";
             }
-            document.write("<br>")
         }
 
-
-
+        function clearArea() {
+            document.getElementById('area').value = " ";
+        }
 
     </script>
 </body>
