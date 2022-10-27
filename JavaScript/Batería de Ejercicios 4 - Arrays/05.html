@@ -10,8 +10,36 @@
 
 <body>
     <script>
+        const REPETICIONES = 10000;
 
+        var map = new Map();
+
+        for (let i = 1; i <= 10; i++) {
+            map.set(i, 0);
+        }
+
+        for (let i = 1; i <= REPETICIONES; i++) {
+            let aleatorio = Math.round(Math.random() * (10 - 1) + 1);
+            let repetido = map.get(aleatorio);
+            map.set(aleatorio, repetido + 1);
+        }
+        document.write("<center>");
+        document.write("<table>");
+        document.write("<tr><th>FRECUENCIAS</th></tr>");
+        for (let i = 1; i <= 10; i++) {
+            let frecuencia = map.get(i);
+            document.write(`<tr><td>Número ${i}</td><td>${frecuencia}</td></tr>`);
+        }
+        document.write("</table>");
+        document.write("</center>");
     </script>
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+
+        }
+    </style>
 </body>
 
 </html>

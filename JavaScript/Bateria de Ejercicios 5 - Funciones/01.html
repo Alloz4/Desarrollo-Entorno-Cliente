@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <h1>Par O Impar</h1>
+    <input type="number" id="caja" placeholder="Escribe un número">
+    <input type="button" id="boton" value="ENVIAR" onclick="parImpar(document.getElementById('caja').value)"><br><br>
+    <textarea id="texto" cols="30" rows="10">Aquí aparecera si es par o impar</textarea><br>
+    <script>
+        function parImpar(numero) {
+            if (numero % 2 == 0) {
+                document.getElementById('texto').innerHTML = `El ${numero} es par`;
+            } else {
+                document.getElementById('texto').innerHTML = `El ${numero} es impar`;
+            }
+        }
+    </script>
+
+
+
+</body>
+
+</html>

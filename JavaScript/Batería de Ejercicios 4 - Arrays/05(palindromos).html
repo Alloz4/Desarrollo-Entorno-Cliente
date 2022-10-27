@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindromos</title>
+</head>
+
+<body>
+    <script>
+
+        //, se ignoran los signos de puntuación (espacios, interrogaciones, comas, puntos, etc..) también se ignoran tildes y diéresis (se considera igual el carácter “á” que el carácter “a”) y no se distingue entre mayúsculas y minúsculas.
+
+        let texto = prompt("Ingrese un texto");
+        function esPalindromo(cadena) {
+            let cadenaSinEspacios = cadena.replace(/ /g, "");
+            let cadenaSinSignos = cadenaSinEspacios.replace(/[^a-zA-Z0-9]/g, "");
+            let cadenaSinTildes = cadenaSinSignos.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+            let cadenaSinMayusculas = cadenaSinTildes.toLowerCase();
+            let cadenaInvertida = cadenaSinMayusculas.split("").reverse().join("");
+            return cadenaSinMayusculas == cadenaInvertida;
+        }
+        if (esPalindromo(texto)) {
+            alert("Es palíndromo");
+        } else {
+            alert("No es palíndromo");
+        }
+    </script>
+</body>
+
+</html>
