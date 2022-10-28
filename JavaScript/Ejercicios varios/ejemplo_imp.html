@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Práctica de evaluación 28 octubre 2021</title>
+</head>
+
+<body>
+    <center>
+        <form name="form1" style="align-items: center;">
+            <div>
+                <label for="cjnombre">Nombre: </label><input type="text" name="cjnombre"><br><br>
+            </div>
+            <div>
+                <label>Visualizar: </label><br><br>
+                <textarea cols="30" rows="15"></textarea>
+            </div>
+            <br>
+            <div>
+                <input type="button" value="Añadir" onclick="accion(1);">
+                <input type="button" value="Buscar" onclick="accion(2)">
+                <input type="button" value="Eliminar" onclick="accion(3)">
+                <input type="button" value="Visualizar" onclick="accion(4)"><br><br>
+            </div>
+            <div>
+                <input type="button" value="Limpiar" onclick="accion(5)">
+            </div>
+        </form>
+    </center>
+
+    <script>
+        var arrayAlumnos = new Array();
+        var salida = document.getElementsByTagName("textarea")[0];
+        var nombre = document.getElementsByName("cjnombre")[0];
+
+        function accion(parametro) {
+            switch (parametro) {
+                case 1:
+                    if (arrayAlumnos.length > 1) {
+                        let repetir = false;
+                        do {
+                            repetir = false;
+                            let numeroAlumno = prompt(" hay " + arrayAlumnos.length + " alumnos ¿En que posicion quiere guardar este alumno? introduzca Inicio, Final o numero").toUpperCase();
+                            if (isNaN(numeroAlumno)) {
+                                switch (numeroAlumno) {
+                                    case "INICIO":
+                                        arrayAlumnos.unshift(nombre);
+                                        break;
+                                    case "FINAL":
+                                        arrayAlumnos.push(nombre);
+                                        break;
+                                    default:
+                                        repetir = true;
+                                        break;
+                                }
+                            }
+                            else {
+                                arrayAlumnos.splice(numeroAlumno, 0, nombre);
+                            }
+
+                        } while (repetir);
+                    }
+                    else {
+                        arrayAlumnos.push(nombre);
+                    }
+                    break;
+                case 2:
+
+                    let mensajeBusqueda = "";
+                    mensajeBusqueda = (arrayAlumnos.includes(nombre)) ? "El alumno solicitado existe.Si desea eliminarlo debera pulsar el boton eliminar" : "el alumno solicitado NO esta en la lista";
+                    alert(mensajeBusqueda);
+                    break;
+
+                case 3:
+
+                    let numeroEntrada = arrayAlumnos.indexOf(nombre);
+                    arrayAlumnos.splice(numeroEntrada, 1);
+
+                    break;
+                case 4:
+
+                    let mensaje = "";
+
+                    for (const i in arrayAlumnos) {
+                        mensaje += i + " " + arrayAlumnos[i] + "\n";
+                    }
+
+                    salida.value = mensaje;
+
+                    break;
+
+                case 5:
+                    salida.value = "";
+                    entrada.value = "";
+                    break;
+            }
+        }
+    </script>
+</body>
+
+</html>

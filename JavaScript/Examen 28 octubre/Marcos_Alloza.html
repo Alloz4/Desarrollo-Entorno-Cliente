@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validando usuario y clave</title>
+</head>
+
+<body>
+    <label for="">Usuario: </label><input type="text" id="cjausuario" value=""><br><br>
+    <label for="">Clave: </label><input type="text" id="cjaclave" value=""><br><br>
+    <input type="button" value="Validar"
+        onclick="validar(document.getElementById('cjausuario').value,document.getElementById('cjaclave').value)">
+    <input type="button" value="Cancelar" onclick="cancelar()">
+
+    <script>
+
+        //Creo una funcion en la que valido el usuario y la clave, le paso por parametros el usuario y la clave que se han introducido en los input.
+        function validar(usuario, clave) {
+
+            //Creo dos patrones, uno para el usuario y otro para la clave con sus caracteristicas correspondientes.
+            var patronUsuario = /^[a-z]+[0-9]+$/;
+            var patronClave = /^[a-zA-Z0-9]+[^a-zA-Z0-9]+$/;
+
+            //Chequeo todos los casos para verificar si el usuario y la clave son correctas o no.
+            if (!patronUsuario.test(usuario)) {
+                alert("El usuario es incorrecto, introduzca de nuevo el usuario.");
+                document.getElementById("cjausuario").value = "";
+            } else if (!patronClave.test(clave)) {
+                alert("La clave es incorrecta, introduzca de nuevo la clave.");
+                document.getElementById("cjaclave").value = "";
+            } else if (patronUsuario.test(usuario) && patronClave.test(clave)) {
+                alert("Los datos han sido almacenados correctamente.");
+                document.getElementById('cjausuario').value = "";
+                document.getElementById('cjaclave').value = "";
+            }
+
+        }
+        //Creo una funcion para cancelar, en la que se manda un mensaje al usuario. Al cancelar se dejan los campos vacios.
+        function cancelar() {
+            alert("Esta a punto de cancelar, ¿quieres continuar?")
+            document.getElementById('cjausuario').value = "";
+            document.getElementById('cjaclave').value = "";
+        }
+
+    </script>
+</body>
+
+</html>

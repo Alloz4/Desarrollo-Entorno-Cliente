@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahorcado</title>
+</head>
+
+<body>
+
+    <script>
+        //juego del ahorcado
+
+        var palabra = prompt("Introduce una palabra");
+        var palabraOculta = "";
+        var intentos = 0;
+        var aciertos = 0;
+        var fallos = 0;
+        var letra = "";
+        var acierto = false;
+        var fin = false;
+
+        for (let i = 0; i < palabra.length; i++) {
+            palabraOculta += "_";
+        }
+
+        while (intentos < 10 && !fin) {
+            letra = prompt("Introduce una letra");
+            palabraMayus = palabra.toUpperCase();
+            letraMayus = letra.toUpperCase();
+            for (let i = 0; i < palabraMayus.length; i++) {
+                if (letraMayus == palabraMayus[i]) {
+                    palabraOculta = palabraOculta.substr(0, i) + letraMayus + palabraOculta.substr(i + 1);
+                    acierto = true;
+                    aciertos++;
+                }
+            }
+            if (acierto) {
+                alert("Has acertado");
+            }
+            else {
+                alert("Has fallado");
+                fallos++;
+            }
+            intentos++;
+            acierto = false;
+            if (aciertos == palabra.length) {
+                fin = true;
+            }
+        }
+
+        if (fin) {
+            alert("Has ganado");
+        }
+        else {
+            alert("Has perdido");
+        }
+
+
+    </script>
+
+</body>
+
+</html>
