@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tarjeta Gráfica</title>
+    <script src="funcion.js"></script>
+</head>
+
+<body>
+    <h1>Tarjeta Gráfica</h1>
+    <form>
+        <label>Marca: </label><input type="text" name="marca"><br><br>
+        <label>Modelo: </label><input type="text" id="modelo"><br><br>
+        <label>Memoria RAM: </label><input type="text" id="memoria"><br><br>
+        <label>Microprocesador: </label><input type="text" id="microprocesador"><br><br>
+        <label>Gráfica: </label><input type="text" id="grafica"><br><br>
+        <label>Portátil: </label><label>Si</label><input type="radio" name="portatil" value="si"><label>No</label><input
+            type="radio" name="portatil" value="no"><br><br>
+        <input type="button" value="Añadir" onclick="accion(this.value)">
+        <input type="button" value="Consultar" onclick="accion(this.value)">
+        <input type="button" value="Eliminar" onclick="accion(this.value)">
+        <input type="button" value="Borrar" onclick="accion(this.value)"><br><br>
+        <textarea id="area" cols="30" rows="10"></textarea>
+    </form>
+</body>
+
+</html>

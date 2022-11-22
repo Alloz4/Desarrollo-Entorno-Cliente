@@ -1,0 +1,74 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo Objetos</title>
+</head>
+
+<body>
+    <form>
+        <h1>El cochecito leré</h1>
+        <label>Color: </label><input type="text" id="color"><br><br>
+        <label>Ruedas: </label><input type="text" id="ruedas"><br>
+        <h3>Motor: </h3>
+        <label>Caballos: </label><input type="text" id="cv"><br><br>
+        <label>Cilindros: </label><input type="text" id="cilindros"><br><br>
+        <label>Tamaño: </label><input type="text" id="tamaño"><br>
+    </form>
+    <script>
+        var miHonda = {
+            color: "rojo",
+            ruedas: 4,
+            motor: {
+                cv: 400,
+                cilindros: 4,
+                tamaño: 3.5
+            }
+        };
+        document.getElementById('color').value = miHonda.color;
+        document.getElementById('ruedas').value = miHonda.ruedas;
+        document.getElementById('cv').value = miHonda.motor.cv;
+        document.getElementById('cilindros').value = miHonda.motor.cilindros;
+        document.getElementById('tamaño').value = miHonda.motor.tamaño;
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+
+        function auto(marca, modelo, año, propietario) {
+            this.marca = marca;
+            this.modelo = modelo;
+            this.año = año;
+            this.propietario = propietario;
+        }
+
+
+        var miCoche = new auto("Seat", "León", 2022, "Marcos");
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>
