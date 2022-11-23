@@ -92,6 +92,8 @@ function eliminar() {
 
     if (!encontrado) {
         texto.value += "No encontrado";
+    } else {
+        texto.value += "Eliminado";
     }
 }
 
