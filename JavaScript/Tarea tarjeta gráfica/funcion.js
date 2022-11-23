@@ -67,7 +67,7 @@ function consultar() {
     var encontrado = false;
     for (var i = 0; i < tarjeta.length; i++) {
         if (tarjeta[i].modelo == modelo) {
-            texto.value += "Marca: " + tarjeta[i].marca + " Modelo: " + tarjeta[i].modelo + " Memoria: " + tarjeta[i].memoria + " Microprocesador: " + tarjeta[i].microprocesador + " Gráfica: " + tarjeta[i].grafica + " Portátil: " + tarjeta[i].portatil + "";
+            texto.value += "Marca: " + tarjeta[i].marca + "\n" + " Modelo: " + tarjeta[i].modelo + "\n" + " Memoria: " + tarjeta[i].memoria + "\n" + " Microprocesador: " + tarjeta[i].microprocesador + "\n" + " Gráfica: " + tarjeta[i].grafica + "\n" + " Portátil: " + tarjeta[i].portatil + "\n";
 
             encontrado = true;
 
@@ -75,7 +75,7 @@ function consultar() {
     }
 
     if (!encontrado) {
-        texto.value += "No encontrado";
+        texto.value += "No encontrado \n";
     }
 }
 
