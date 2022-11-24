@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="menu.js"></script>
+    <title>Menú del día</title>
+</head>
+
+<body>
+    <h1>Menú del día</h1>
+    <p>Elige tu primer plato: </p>
+    <select name="primero">
+        <option value="Solomillo">Solomillo</option>
+        <option value="Merluza">Merluza</option>
+        <option value="Ensalada">Ensalada César</option>
+    </select>
+    <p>Elige tu segundo plato: </p>
+    <select name="segundo">
+        <option value="Cocido Madrileño">Cocido Madrileño</option>
+        <option value="Paella">Paella</option>
+        <option value="Pasta Carbonara">Pasta Carbonara</option>
+    </select>
+    <p>Elige tu postre: </p>
+    <label>Helado</label><input type="radio" name="postre" value="Helado">
+    <label>Tarta de queso</label><input type="radio" name="postre" value="Tarta de queso">
+    <label>Flan</label><input type="radio" name="postre" value="Flan">
+    <br>
+    <br>
+    <input type="button" value="Mostrar menu" onclick="eleccion()">
+    <p>Su elección es: </p>
+    <textarea name="menu" cols="30" rows="10"></textarea>
+</body>
+
+</html>
