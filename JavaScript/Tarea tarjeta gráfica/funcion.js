@@ -52,12 +52,6 @@ function añadir() {
     document.getElementById("area").value += "Añadido correctamente \n";
 }
 
-//que numero de la loteria de navidad va a ser el ganador
-
-var numero = Math.floor(Math.random() * 1000000);
-console.log(numero);
-
-
 function consultar() {
 
     var texto = document.getElementById("area");
