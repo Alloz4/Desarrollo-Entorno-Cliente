@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personalización Pantalla</title>
+</head>
+
+<body>
+  <script>
+    window.onload = function () {
+      let fondo = document.querySelector("select:nth-of-type(1)");
+      let fuente = document.querySelector("select:nth-of-type(2)");
+      let colorFondo = document.querySelector("body");
+      let colorFuente = document.querySelector("p");
+      let boton = document.querySelector("button");
+
+      //cambiar el fondo y el color del texto con webstorage
+
+      fondo.onclick = function () {
+        colorFondo.style.backgroundColor = fondo.value;
+        localStorage.setItem("fondo", fondo.value);
+      }
+
+      fuente.onclick = function () {
+        colorFuente.style.color = fuente.value;
+        localStorage.setItem("fuente", fuente.value);
+      }
+
+      boton.onclick = function () {
+        colorFondo.style.backgroundColor = "white";
+        colorFuente.style.color = "black";
+      }
+
+    }
+
+
+  </script>
+
+  <p>Puede elegir el color de fondo que desea para visualizar nuestra página Web </p><br>
+  <select name="fondocolor">
+    <option value='red'>Rojo</option>
+    <option value='blue'>Azul</option>
+    <option value='green'>Verde</option>
+    <option value='yellow'>Amarillo</option>
+  </select>
+  <br>
+  <p> Elija el color que desea para el texto </p>
+  <select name="fuentecolor">
+    <option value='black'>Negro</option>
+    <option value='blue'>Azul</option>
+    <option value='green'>Verde</option>
+    <option value='yellow'>Amarillo</option>
+  </select>
+  <br /><br />
+  <button type='button'>Reestablece los colores por defecto</button>
+</body>
+
+</html>

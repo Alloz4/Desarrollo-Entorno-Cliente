@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+</head>
+<script>
+
+    function Obtenerhijos(id) {
+        let padre = document.getElementById(id);
+        let hijos = padre.children;
+        let resultado = "";
+
+        padre.style.color = "red";
+        document.getElementById("resultados").style.color = "green";
+        resultado += "Padre tiene " + hijos.length + "hijos" + "<br>";
+
+        for (let i = 0; i < hijos.length; i++) {
+            resultado += hijos[i].id + "<br>";
+        }
+
+
+        document.getElementById("resultados").innerHTML = resultado;
+
+
+    }
+
+</script>
+
+<body>
+    <div id="padre">
+        <p id="child1">Contenido del parrafo ...</p>
+        <p id="child2">Contenido del parrafo ...</p>
+        <p id="child3">Contenido del parrafo ...</p>
+    </div>
+    <button onclick="Obtenerhijos('padre');">Obtención de hijos</button><br><br>
+    <div id="resultados"></div>
+</body>
+
+</html>

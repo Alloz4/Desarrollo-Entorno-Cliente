@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Controlando elementos y Programando</title>
+	<meta charset="utf-8">
+</head>
+
+<body>
+	<center>
+		<h2>GENERACION DE FIGURAS GEOMETRICAS</h2>
+		<h3>TRIANGULO</h3>
+
+		<form name="configuracion">
+			<div>
+				<h3>CONFIGURACION</h3>
+				<h4>Opciones del modelo:</h4><br />
+				<table>
+					<tr>
+						<th>Filas</th>
+						<th>Caracter</th>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="25" />25</td>
+						<td><input type="radio" name="caracter" value="*" />Asterisco</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="15" />15</td>
+						<td><input type="radio" name="caracter" value="$" />Dolar</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="10" />10</td>
+						<td><input type="radio" name="caracter" value="%" />Porcentaje</td>
+					</tr>
+					<tr>
+						<td><input type="radio" name="Fila" value="5" />5</td>
+						<td><input type="radio" name="caracter" value="K" />Letra K<br /></td>
+					</tr>
+				</table><br><br>
+
+
+				<div name="datos">
+					<h4> VISUALIZACION DE LA FIGURA: </h4><textarea name='visualizador' cols='13' rows='6'></textarea>
+				</div>
+				<p></p>
+			</div>
+		</form>
+	</center>
+	<script>
+
+		function Poligono(rangofilas, rangocolums, letraprint, datospoligono) {
+			this.rangofilas = rangofilas;
+			this.rangocolums = rangocolums;
+			this.letraprint = letraprint;
+			this.datospoligono = datospoligono;
+		}
+
+
+		//Funcion para obtener el valor de las filas
+
+		function getRangoFilas() {
+			var filas = document.getElementsByName("Fila");
+			var filasSeleccionadas;
+			for (var i = 0; i < filas.length; i++) {
+				if (filas[i].checked) {
+					filasSeleccionadas = filas[i].value;
+				}
+			}
+			return filasSeleccionadas;
+		}
+
+		//Funcion para obtener el valor del caracter
+
+		function getLetraPrint() {
+			var letraprint = document.getElementsByName("caracter");
+			var letraSeleccionada;
+			for (var i = 0; i < letraprint.length; i++) {
+				if (letraprint[i].checked) {
+					letraSeleccionada = letraprint[i].value;
+				}
+			}
+			return letraSeleccionada;
+		}
+
+		var filas = getRangoFilas();
+		var columnas = filas * 2;
+		var letraprint = getLetraPrint();
+		var datospoligono = "El polígono representado está formado por " + filas + " filas y por " + columnas + " columnas Y se ha utilizado el cáracter " + letraprint + " para representarlo.";
+		var texto = document.getElementsByName("visualizador");
+
+		var poligono = new Poligono(filas, columnas, letraprint, datospoligono);
+
+
+		for (var i = 0; i < poligono.rangofilas; i++) {
+			for (var j = 0; j < poligono.rangocolums; j++) {
+				texto.value += poligono.letraprint;
+			}
+			texto.value += "\n";
+		}
+
+		document.write(poligono.datospoligono);
+
+
+	</script>
+</body>
+
+</html>

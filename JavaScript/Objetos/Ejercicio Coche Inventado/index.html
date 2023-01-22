@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El coche</title>
+</head>
+<style>
+    .caja {
+        border: 2px solid black;
+        padding: 30px;
+        width: 20vW;
+    }
+</style>
+
+<body>
+    <div class="caja">
+
+        <h1>Coche</h1>
+        <label>Marca: </label><input type="text" id="marca"><br><br>
+        <label>Modelo: </label><input type="text" id="modelo"><br><br>
+        <label> Potencia: </label><input type="text" id="cv"><br><br>
+        <label>Color: </label><br><br>
+        <label>Rojo</label><input type="radio" name="color" value="Rojo"><label>Blanco</label><input type="radio"
+            name="color" value="Blanco">
+        <label>Gris</label><input type="radio" name="color" value="Gris"><label>Negro</label><input type="radio"
+            name="color" value="Negro"><br><br>
+        <input type="button" value="Guardar" onclick="guardar()">
+        <input type="button" value="Visualizar" onclick="visualizar()">
+        <input type="button" value="Borrar" onclick="borrar()">
+        <input type="button" value="Eliminar" onclick="eliminar()">
+
+        <h2>Coche elegido</h2>
+        <textarea id="eleccion" cols="30" rows="10"></textarea>
+
+    </div>
+
+    <script src="coche.js"></script>
+</body>
+
+</html>

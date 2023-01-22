@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejemplo de almacenamiento local con HTML5</title>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+
+        span#mensajes {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        window.onload = function () {
+            let botonGuardar = document.querySelector("button:nth-of-type(1)");
+            let botonEliminar = document.querySelector("button:nth-of-type(2)");
+            let botonRefrescar = document.querySelector("button:nth-of-type(3)");
+            let botonComprobar = document.querySelector("button:nth-of-type(4)");
+            let tipo = document.getElementById("tipo");
+            let clave = document.getElementById("clave");
+            let valor = document.getElementById("valor");
+            let mensajes = document.getElementById("mensajes");
+            let almacenamientoLocal = document.getElementById("almacenamientoLocal");
+            let almacenamientoSesion = document.getElementById("almacenamientoSesion");
+
+            botonGuardar.onclick = function () {
+                if (tipo.value == "local") {
+                    localStorage.setItem(clave.value, valor.value);
+                } else {
+                    sessionStorage.setItem(clave.value, valor.value);
+                }
+                //MOSTRAR MENSAJE DE CONFIRMACION DURANTE 3 SEGUNDOS
+                mensajes.innerHTML = "Valor guardado";
+                setTimeout(function () {
+                    mensajes.innerHTML = "";
+                }, 3000);
+            }
+
+            botonEliminar.onclick = function () {
+                if (tipo.value == "local") {
+                    localStorage.removeItem(clave.value);
+                } else {
+                    sessionStorage.removeItem(clave.value);
+                }
+                mensajes.innerHTML = "Valor eliminado";
+                setTimeout(function () {
+                    mensajes.innerHTML = "";
+                }, 3000);
+            }
+
+            botonRefrescar.onclick = function () {
+                almacenamientoLocal.value = "";
+                almacenamientoSesion.value = "";
+                for (var i = 0; i < localStorage.length; i++) {
+                    almacenamientoLocal.value += localStorage.key(i) + " = " + localStorage.getItem(localStorage.key(i)) + "\n";
+                }
+                for (var i = 0; i < sessionStorage.length; i++) {
+                    almacenamientoSesion.value += sessionStorage.key(i) + " = " + sessionStorage.getItem(sessionStorage.key(i)) + "\n";
+                }
+            }
+
+            botonComprobar.onclick = function () {
+                if (typeof (Storage) !== "undefined") {
+                    mensajes.innerHTML = "Tu navegador soporta almacenamiento local y de sesi&oacute;n";
+                } else {
+                    mensajes.innerHTML = "Tu navegador no soporta almacenamiento local y de sesi&oacute;n";
+                }
+            }
+        }
+    </script>
+    <h1>EJEMPLO DE ALMACENAMIENTO LOCAL CON HTML5</h1>
+
+    <span id="mensajes"></span><br /><br />
+    AREA DE ALMACENAMIENTO:
+    <select id="tipo">
+        <option value="local">LOCAL</option>
+        <option value="sesion">SESION</option>
+    </select><br />
+    CLAVE: <input type="text" id="clave" /><br />
+    VALOR: <input type="text" id="valor" /><br /><br />
+    <button>GUARDAR</button>
+    <button>ELIMINAR</button>
+    <button>REFRESCAR</button>
+    <button>COMPROBAR COMPATIBILIDAD DEL NAVEGADOR</button>
+
+    <br /><br />
+    <table>
+        <tr>
+            <td>
+                CLAVES Y VALORES EN LOCAL STORAGE:<br />
+                <textarea rows="10" cols="50" id="almacenamientoLocal" readonly="readonly"></textarea>
+            </td>
+            <td>
+                CLAVES Y VALORES EN SESSION STORAGE:<br />
+                <textarea rows="10" cols="50" id="almacenamientoSesion" readonly="readonly"></textarea>
+            </td>
+        </tr>
+    </table>
+    <p>Puedes probar a guardar valores con almacenamiento local y de sesi&oacute;n, cierra y abre el navegador o la
+        pesta&ntilde;a y observar&aacute;s que se pierden los datos almacenados en sesi&oacute;n pero no los locales.
+    </p>
+    <p>Tambi&eacute;n puedes probar a abrir dos ventanas guardar valores con almacenamiento local en una de ellas y ver
+        como aparecen en la otra.</p>
+
+</body>
+
+</html>

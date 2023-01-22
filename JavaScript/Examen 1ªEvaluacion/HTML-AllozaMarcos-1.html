@@ -1,0 +1,60 @@
+﻿<!DOCTYPE HTML>
+<HTML>
+
+<HEAD>
+    <TITLE>PRIMER EJERCICIO</TITLE>
+</HEAD>
+
+<BODY>
+    <FORM name="humano">
+        <center>
+            <p>Se trata de diseñar un pequeño formulario que detecte</p>
+            <p>en el lado del cliente la presencia o no de una máquina</p>
+            <input type="text" name="referencia" align="center"
+                style="font-size:100%;text-align:center;font-family:fantasy;">
+            <h3 align="center">Introduzca en la siguiente caja los caracteres de la caja superior</h3>
+            <input type="text" name="cliente" style="font-size:100%;text-align:center;" autofocus><br><br>
+            <input type="button" value="Aceptar">
+        </center>
+    </form>
+
+    <script>
+        let cadena = "";
+
+        for (let i = 0; i < 8; i++) {
+            var numero = Math.floor(Math.random() * (122 - 65)) + 65;
+
+            if (numero >= 91 && numero <= 96) {
+                numero = Math.floor(Math.random() * (122 - 65)) + 65;
+            }
+            cadena += String.fromCharCode(numero);
+
+        }
+
+        document.getElementsByName("referencia")[0].value += cadena;
+
+
+
+        let boton = document.getElementsByTagName("input")[2];
+
+        boton.addEventListener("click", function () {
+            let referencia = document.getElementsByName("referencia")[0];
+            let cliente = document.getElementsByName("cliente")[0];
+
+            if (referencia.value == cliente.value) {
+                alert("Bienvenido, puedes acceder correctamente.");
+                cliente.value = "";
+            } else {
+                alert("No eres humano, no puedes acceder.");
+                cliente.value = "";
+            }
+        });
+
+
+
+
+
+    </script>
+</body>
+
+</html>
